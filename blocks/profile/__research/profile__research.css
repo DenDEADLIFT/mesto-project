@@ -9,8 +9,12 @@
 
 @media all and (max-width: 520px) {
     .profile__research {
+        margin: 0;
         max-width: 282px;
         font-size: 14px;
         line-height: 17px;
+        text-align: center;
+        justify-content: center;
+        align-content: center;
     }
 }

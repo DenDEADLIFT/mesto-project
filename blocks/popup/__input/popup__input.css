@@ -1,4 +1,4 @@
-.edit-form__input {
+.popup__input {
     min-width: 358px;
     max-height: 27px;
     font-weight: 400;
@@ -6,10 +6,13 @@
     line-height: 17px;
     outline: none; 
     border: none; 
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 @media all and (max-width: 460px) {
-    .edit-form__input {
+    .popup__input {
         width: 238px;
     }
 }

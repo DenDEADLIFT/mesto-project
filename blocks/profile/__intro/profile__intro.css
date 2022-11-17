@@ -8,19 +8,22 @@
     grid-template-rows: max-content;
     grid-template-areas: 
     "jac edit-button"
-    "research research";
+    "research .";
     gap: 8px 17px;
     align-items: center;
 }
 
 @media all and (max-width: 520px) {
     .profile__intro {
-        padding-top: 26px;
-        grid-template-columns: 189px max-content;
-        padding-left: 0;
-        max-width: 282px;
-        align-items: center;
+        padding-top: 27px;
+        grid-template-columns: max-content max-content;
+        padding-left: 31px;
+        /*margin: 0 auto;*/
+        width: 282px;
+        min-height: 54px;
+        /*align-items: flex-end;*/
         text-align: center;
-        gap: 14px 10px;
+        gap: 6px 10px;
+        justify-content: center;
     }
 }

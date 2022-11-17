@@ -9,8 +9,11 @@
 
 @media all and (max-width: 520px) {
     .profile__jac {
+        margin: 0;
         max-width: 189px;
         font-size: 27px;
         line-height: 33px;
+        /*align-self: flex-end;*/
+justify-content: end;
     }
 }

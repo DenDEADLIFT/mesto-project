@@ -1,0 +1,16 @@
+.button_add {
+    position: relative;
+    min-width: 150px;
+    min-height: 50px;
+    background-image: url(../../../images/add-button.png);
+    background-color: black;
+    border: 0;
+}
+
+@media all and (max-width: 320px) {
+    .button_add {
+        background-image: url(../../../images/add-button-max.png);
+        background-size: 282px;
+        min-width: 282px;
+    }
+}
