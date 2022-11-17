@@ -1,0 +1,15 @@
+.elements__heart {
+    padding: 1px;
+    max-width: 20px;
+    max-height: 19px;
+}
+
+.elements__heart:hover {
+    opacity: 0.6;
+}
+
+.elements__heart:active {
+    color: black;
+    background-image: url(../../../images/union.png);
+    opacity: 1;
+}

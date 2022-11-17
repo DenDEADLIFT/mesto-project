@@ -1,0 +1,8 @@
+.elements__box {
+    margin: 0;
+    min-width: 246px;
+    max-height: 23px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

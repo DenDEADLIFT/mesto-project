@@ -1,0 +1,16 @@
+.profile__jac {
+    grid-area: jac;
+    margin: 8px 0 0 0;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 48px;
+    color: #fff;
+}
+
+@media all and (max-width: 520px) {
+    .profile__jac {
+        max-width: 189px;
+        font-size: 27px;
+        line-height: 33px;
+    }
+}

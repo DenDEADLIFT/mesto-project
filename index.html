@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title>Место</title>
+</head>
+<body class="page">
+  <div id="openModal" class="edit-form">
+    <div class="edit-form__body">
+      <div class="edit-form__content">
+        <a href="#" class="edit-form__close"><img class="edit-form__close-icon" src="./images/close-icon.png" alt="Закрыть"></a>
+        <h2 class="edit-form__title">Редактировать профиль</h2>
+        <div class="edit-form__fields">
+          <input type="text" class="edit-form__input" placeholder="Жак-Ив Кусто" color="#000000">
+          <div class="edit-form__line"></div>
+        </div>
+        <div class="edit-form__fields">
+          <input type="text" class="edit-form__input" placeholder="Исследователь океана">
+          <div class="edit-form__line"></div>
+        </div>
+        <button class="edit-form__button">Сохранить</button>
+      </div>
+    </div>
+  </div>
+  <header class="header">
+    <img class="header__logo" src="./images/logo.svg" alt="Лого в шапке">
+    <div class="header__line"></div>
+  </header>
+  <main>
+    <section class="profile">
+      <div class="profile__cousto">
+        <img class="profile__avatar" src="./images/avatar.png" alt="Кусто фото">
+        <div class="profile__intro">
+          <h1 class="profile__jac">Жак-Ив Кусто</h1>
+          <p class="profile__research">Исследователь океана</p>
+          <a href="#openModal"><button class="profile__edit-button"></button></a>
+        </div>
+      </div>
+      <img class="profile__add-button" src="./images/add-button.png" alt="Кнопка добавления">
+    </section>
+    <section class="cards">
+      <ul class="elements">
+        <li class="elements__element">
+          <img class="elements__image" src="./images/karachaevsk.jpg" alt="Карачаевск">
+          <div class="elements__box">
+            <h2 class="elements__name">Карачаевск</h2>
+            <img class="elements__heart" src="./images/heart.svg" alt="Сердце">
+          </div>
+        </li>
+        <li class="elements__element">
+          <img class="elements__image" src="./images/karachaevsk.jpg" alt="Карачаевск">
+          <div class="elements__box">
+            <h2 class="elements__name">Гора Эльбрус</h2>
+            <img class="elements__heart" src="./images/heart.svg" alt="Сердце">
+          </div>
+        </li>
+        <li class="elements__element">
+          <img class="elements__image" src="./images/karachaevsk.jpg" alt="Карачаевск">
+          <div class="elements__box">
+            <h2 class="elements__name">Домбай</h2>
+            <img class="elements__heart" src="./images/heart.svg" alt="Сердце">
+          </div>
+        </li>
+        <li class="elements__element">
+          <img class="elements__image" src="./images/karachaevsk.jpg" alt="Карачаевск">
+          <div class="elements__box">
+            <h2 class="elements__name">Гора Эльбрус</h2>
+            <img class="elements__heart" src="./images/heart.svg" alt="Сердце">
+          </div>
+        </li>
+        <li class="elements__element">
+          <img class="elements__image" src="./images/karachaevsk.jpg" alt="Карачаевск">
+          <div class="elements__box">
+            <h2 class="elements__name">Домбай</h2>
+            <img class="elements__heart" src="./images/heart.svg" alt="Сердце">
+          </div>
+        </li>
+        <li class="elements__element">
+          <img class="elements__image" src="./images/karachaevsk.jpg" alt="Карачаевск">
+          <div class="elements__box">
+            <h2 class="elements__name">Карачаево-Ч...</h2>
+            <img class="elements__heart" src="./images/heart.svg" alt="Сердце">
+          </div>
+        </li>
+      </ul>
+  </main>
+  <footer class="footer">
+    <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+  </footer>
+</body>
+</html>

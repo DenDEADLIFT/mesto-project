@@ -1,0 +1,17 @@
+.profile__cousto {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media all and (max-width: 520px) {
+    .profile__cousto {
+        flex-direction: column;
+        justify-content: start;
+        max-width: 282px;
+        max-height: 286px;
+        padding-bottom: 36px;
+    }
+}

@@ -1,0 +1,15 @@
+.edit-form__input {
+    min-width: 358px;
+    max-height: 27px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    outline: none; 
+    border: none; 
+}
+
+@media all and (max-width: 460px) {
+    .edit-form__input {
+        width: 238px;
+    }
+}
