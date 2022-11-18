@@ -1,6 +1,7 @@
 .elements {
     margin: 0 auto 0 auto;
     padding-left: 0;
+    padding-right: 0;
     padding-bottom: 66px;
     max-width: 880px;
     min-height: 744px;
@@ -11,7 +12,7 @@
     list-style-type: none;
 }
 
-@media all and (max-width: 320px) {
+@media all and (max-width: 340px) {
     .elements {
         padding-bottom: 48px;
         max-width: 282px;

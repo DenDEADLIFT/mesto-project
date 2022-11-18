@@ -10,7 +10,7 @@
     justify-content: start;
 }
 
-@media all and (max-width: 320px) {
+@media all and (max-width: 900px) {
     .elements__element {
         min-height: 361px;
     }
