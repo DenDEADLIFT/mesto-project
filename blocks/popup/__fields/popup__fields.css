@@ -3,10 +3,6 @@
     margin-bottom: 30px;
 }
 
-.popup__fields:last-of-type {
-    margin-bottom: 25x;
-}
-
 @media all and (max-width: 460px) {
     .popup__fields {
         margin-bottom: 33px;

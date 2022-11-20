@@ -5,5 +5,5 @@
     min-height: 282px;
     border-radius: 10px 10px 0 0;
     object-position: center;
-    object-fit: cover;
+    object-fit: contain;
 }
