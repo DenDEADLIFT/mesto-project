@@ -1,4 +1,4 @@
-.button_edit {
+.profile__edit {
     position: relative;
     padding: 0;
     min-width: 24px;
@@ -7,10 +7,16 @@
     background-color: black;
     border: 0;
     background-size: 24px 24px;
+    margin: 0;
+}
+
+.profile__edit:hover {
+    opacity: 0.6;
+    cursor: pointer;
 }
 
 @media all and (max-width: 330px) {
-    .button_edit {
+    .profile__edit {
         background-size: 18px 18px;
         min-width: 18px;
         min-height: 18px;

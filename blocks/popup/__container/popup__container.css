@@ -3,24 +3,20 @@
     background-color: #fff;
     color: #000;
     max-width: 430px;
-    max-height: 330px;
-    padding: 34px 36px 37px 36px;
+    max-height: 293px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    border-radius: 10px;
     opacity: none;
     z-index: 2;
 }
 
 @media all and (max-width: 460px) {
     .popup__container {
-        margin-top: 123px;
-        margin-left: 19px;
-        margin-right: 19px;
+
         max-width: 282px;
         max-height: 322px;
-        padding: 25px 22px 25px 22px;
+        margin-top: 25px;
     }
 }

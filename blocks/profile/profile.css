@@ -2,7 +2,6 @@
     margin: 0 auto 0 auto;
     padding-bottom: 51px;
     max-width: 880px;
-    min-height: 120px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -17,7 +16,6 @@
 
 @media all and (max-width: 900px) {
     .profile {
-        display: flex;
         flex-direction: column;
         justify-content: center;
     }
@@ -26,7 +24,6 @@
 @media all and (max-width: 580px) {
     .profile {
         max-width: 282px;
-        min-height: 286px;
         padding-bottom: 36px;
     }
 }

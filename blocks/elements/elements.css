@@ -4,7 +4,6 @@
     padding-right: 0;
     padding-bottom: 66px;
     max-width: 880px;
-    min-height: 744px;
     display: grid;
     grid-template-columns: repeat(auto-fit, 282px);
     gap: 20px 17px;
@@ -16,6 +15,6 @@
     .elements {
         padding-bottom: 48px;
         max-width: 282px;
-        gap: 20px;
+        gap: 19px;
     }
 }

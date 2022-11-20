@@ -1,15 +1,18 @@
-.profile__jac {
+.profile__name {
     grid-area: jac;
     margin: 8px 0 0 0;
     font-weight: 500;
     font-size: 42px;
     line-height: 48px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
     color: #fff;
 }
 
 @media all and (max-width: 520px) {
-    .profile__jac {
-        margin: 0;
+    .profile__name {
+        margin-top: 0;
         max-width: 189px;
         font-size: 27px;
         line-height: 33px;

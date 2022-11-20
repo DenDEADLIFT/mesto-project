@@ -1,7 +1,7 @@
 .elements__element {
     margin: 0;
     max-width: 282px;
-    max-height: 361px;
+    padding-bottom: 26px;
     background: #FFFFFF;
     border-radius: 10px;
     display: flex;
@@ -12,6 +12,6 @@
 
 @media all and (max-width: 900px) {
     .elements__element {
-        min-height: 361px;
+        padding-bottom: 27px;
     }
 }

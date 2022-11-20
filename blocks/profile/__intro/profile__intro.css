@@ -2,7 +2,6 @@
     margin: 0;
     padding-left: 34px;
     max-width: 336px;
-    min-height: 73px;
     display: grid;
     grid-template-columns: 294px max-content;
     grid-template-rows: max-content;
@@ -19,7 +18,6 @@
         grid-template-columns: max-content max-content;
         padding-left: 31px;
         max-width: 282px;
-        min-height: 54px;
         text-align: center;
         gap: 6px 10px;
         justify-content: center;

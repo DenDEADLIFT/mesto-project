@@ -1,0 +1,21 @@
+.elements__button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-image: url(../../../images/heart.svg);
+    object-fit: cover;
+    object-position: center;
+    background-size: 20px 20px;
+    min-width: 20px;
+    min-height: 20px;
+}
+
+.elements__button:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.elements__button:active {
+    background-image: url(../../../images/union.png);
+    opacity: 1;
+}
