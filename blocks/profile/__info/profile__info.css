@@ -10,7 +10,7 @@
     .profile__info {
         flex-direction: column;
         justify-content: center;
-        max-width: 282px;
+        min-width: 282px;
         padding-bottom: 34px;
     }
 }
