@@ -18,9 +18,9 @@
         grid-template-areas: 
         "jac edit-button"
         "research";
-        grid-template-columns: 1fr  18px;
+        grid-template-columns: 245px  18px;
         padding-left: 0;
         min-width: 282px;
-        gap: 6px 10px;
+        gap: 6px 0px;
     }
 }
