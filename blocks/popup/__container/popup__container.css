@@ -3,7 +3,6 @@
     background-color: #fff;
     color: #000;
     max-width: 430px;
-    min-height: 182px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -14,9 +13,7 @@
 
 @media all and (max-width: 460px) {
     .popup__container {
-
         max-width: 282px;
-        min-height: 182px;
         margin-top: 25px;
     }
 }
