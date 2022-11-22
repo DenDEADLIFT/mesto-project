@@ -13,9 +13,13 @@
 @media all and (max-width: 520px) {
     .profile__name {
         margin-top: 0;
-        max-width: 189px;
+        margin-left: 28px;
+        padding: 0;
+        max-width: 282px;
         font-size: 27px;
         line-height: 33px;
-        justify-self: center;
+        text-align: center;
+        justify-content: center;
+        align-content: center;
     }
 }
