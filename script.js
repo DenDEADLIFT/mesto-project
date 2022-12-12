@@ -48,3 +48,14 @@ function handleFormSubmit(evt) {
 }
 
 buttonEditSave.addEventListener('click', handleFormSubmit);
+
+// Кнопка лайк
+
+const likeButton = document.querySelectorAll('.elements__button');
+//alert(likeButton)
+
+likeButton.forEach(like => {
+    like.addEventListener('click', () => {
+        like.classList.toggle('elements__button_active'); // Перебираем массив и, на каждый элемент, вешаем изменение селектора
+    });
+});
