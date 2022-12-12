@@ -1,20 +1,18 @@
 //Находим кномки открытия и закрытия открытия попапа по id
 const popupEditOpened = document.querySelector('.profile__edit');
 const popupEditClose = document.querySelector('#popup-edit-close');
-
+const popupOpened = document.querySelector('#popup-edit');
 //Открываем попап
 
-function popupOpened() {
-    const popupOpened = document.querySelector('#popup-edit');
+function popupOpen(popup) {
     popupOpened.classList.add('popup_opened');
 }
   
-popupEditOpened.addEventListener('click', popupOpened); 
+popupEditOpened.addEventListener('click', popupOpen); 
 
 //Закрываем попап
 
-function popupClose() {
-    const popupOpened = document.querySelector('#popup-edit');
+function popupClose(popup) {
     popupOpened.classList.remove('popup_opened');
 }
 
