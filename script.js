@@ -1,50 +1,58 @@
-//Находим кномки открытия и закрытия открытия попапа по id
-const popupEditOpened = document.querySelector('.profile__edit');
-const popupEditClose = document.querySelector('#popup-edit-close');
-const popupOpened = document.querySelector('#popup-edit');
-
-// Находим форму в DOM
-
-let formElement = document.querySelector('#form-edit');
-
-// Находим поля формы в DOM
-
-const nameInput = formElement.querySelector('#popup-input-name');
-const jobInput = formElement.querySelector('#popup-input-about');
+const buttonEditOpened = document.querySelector('.profile__edit');
+const buttonEditClose = document.querySelector('#popup-edit-close');
+const popupEditOpened = document.querySelector('#popup-edit');
+const nameInput = document.querySelector('#popup-input-name');
+const jobInput = document.querySelector('#popup-input-about');
 const buttonEditSave = document.querySelector('#button-edit-save');
 const profileName = document.querySelector('.profile__name');
 const profileResearch = document.querySelector('.profile__research');
+const buttonAddOpened = document.querySelector('.profile__add');
+const buttonAddClose = document.querySelector('#popup-add-close');
+const popupAddOpened = document.querySelector('#popup-add');
 
-//Открываем любой попап
+//Функция открытия попапов
 
-function popupOpen(popup) {
-    popupOpened.classList.add('popup_opened');
+function openPopup(popupElement) {
+    popupElement.classList.add('popup_opened');
 }
 
-//Закрываем любой попап
+//Функция закрытия попапов
 
-function popupClose(popup) {
-    popupOpened.classList.remove('popup_opened');
+function closePopup(popupElement) {
+    popupElement.classList.remove('popup_opened');
 }
 
-//Открываем попап редактирования
+//Открытие и закрытие попапа редактирования
 
-function popupEditOpen() {
-    nameInput.value = profileName.textContent;
-    jobInput.value = profileResearch.textContent;
-    popupOpen()
-}
-  
-popupEditOpened.addEventListener('click', popupEditOpen); 
-popupEditClose.addEventListener('click', popupClose); 
+buttonEditOpened.addEventListener('click', function () {
+    openPopup(popupEditOpened);
+}); 
+
+buttonEditClose.addEventListener('click', function () {
+    closePopup(popupEditOpened);
+});
+
+//Открытие и закрытие попапа добавления
+
+buttonAddOpened.addEventListener('click', function () {
+    openPopup(popupAddOpened);
+});
+
+buttonAddClose.addEventListener('click', function () {
+    closePopup(popupAddOpened);
+}); 
+
+nameInput.value = profileName.textContent;
+jobInput.value = profileResearch.textContent;
 
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
+
 function handleFormSubmit(evt) {
     evt.preventDefault();    
     document.querySelector('.profile__name').textContent = nameInput.value;
     document.querySelector('.profile__research').textContent = jobInput.value;
-    popupClose()
+    closePopup(popupEditOpened)
 }
 
 buttonEditSave.addEventListener('click', handleFormSubmit);
@@ -59,3 +67,4 @@ likeButton.forEach(like => {
         like.classList.toggle('elements__button_active'); // Перебираем массив и, на каждый элемент, вешаем изменение селектора
     });
 });
+
