@@ -32,18 +32,6 @@ buttonEditClose.addEventListener('click', function () {
     closePopup(popupEditOpened);
 });
 
-<<<<<<< HEAD
-//Открытие и закрытие попапа добавления
-
-buttonAddOpened.addEventListener('click', function () {
-    openPopup(popupAddOpened);
-});
-
-buttonAddClose.addEventListener('click', function () {
-    closePopup(popupAddOpened);
-}); 
-=======
->>>>>>> develop
 
 nameInput.value = profileName.textContent;
 jobInput.value = profileResearch.textContent;
@@ -81,8 +69,6 @@ likeButton.forEach(like => {
     });
 });
 
-<<<<<<< HEAD
-=======
 //Открытие и закрытие попапа добавления
 
 buttonAddOpened.addEventListener('click', function () {
@@ -95,4 +81,3 @@ buttonAddClose.addEventListener('click', function () {
 
 //Добавление карточек
 
->>>>>>> develop
