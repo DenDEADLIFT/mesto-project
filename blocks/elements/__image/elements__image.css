@@ -1,9 +1,9 @@
 .elements__image {
     margin: 0;
     padding-bottom: 24px;
-    max-width: 282px;
+    width: 282px;
     height: 282px;
     border-radius: 10px 10px 0 0;
     object-position: center;
-    object-fit: contain;
+    object-fit: cover;
 }
