@@ -32,6 +32,7 @@ buttonEditClose.addEventListener('click', function () {
     closePopup(popupEditOpened);
 });
 
+<<<<<<< HEAD
 //Открытие и закрытие попапа добавления
 
 buttonAddOpened.addEventListener('click', function () {
@@ -41,6 +42,8 @@ buttonAddOpened.addEventListener('click', function () {
 buttonAddClose.addEventListener('click', function () {
     closePopup(popupAddOpened);
 }); 
+=======
+>>>>>>> develop
 
 nameInput.value = profileName.textContent;
 jobInput.value = profileResearch.textContent;
@@ -57,10 +60,20 @@ function handleFormSubmit(evt) {
 
 buttonEditSave.addEventListener('click', handleFormSubmit);
 
+//Карточки
+
+initialCards.forEach(function(item) {
+    const cardTemplate = document.querySelector('#card-template').content; 
+    const usersOnline = document.querySelector('.elements');
+    const newElement = cardTemplate.querySelector('.elements__element').cloneNode(true);
+    newElement.querySelector('.elements__image').src = item.link;
+    newElement.querySelector('.elements__name').textContent = item.name;
+    usersOnline.append(newElement); 
+});
+
 // Кнопка лайк
 
 const likeButton = document.querySelectorAll('.elements__button');
-//alert(likeButton)
 
 likeButton.forEach(like => {
     like.addEventListener('click', () => {
@@ -68,3 +81,18 @@ likeButton.forEach(like => {
     });
 });
 
+<<<<<<< HEAD
+=======
+//Открытие и закрытие попапа добавления
+
+buttonAddOpened.addEventListener('click', function () {
+    openPopup(popupAddOpened);
+});
+
+buttonAddClose.addEventListener('click', function () {
+    closePopup(popupAddOpened);
+}); 
+
+//Добавление карточек
+
+>>>>>>> develop
