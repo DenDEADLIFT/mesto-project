@@ -18,6 +18,7 @@ const popupImageTitle = document.querySelector('#popup-image-title');
 const titleInput = document.querySelector('#popup-input-title');
 const titlelink = document.querySelector('#popup-input-link');
 const closeButtons = document.querySelectorAll('.popup__close');
+const elementsBox = document.querySelector('.elements');
 
 //Функция открытия попапов
 
@@ -55,7 +56,6 @@ buttonEditSave.addEventListener('click', editProfile);
 function createCard(imageCards, nameCards) {
     const cardTemplate = document.querySelector('#card-template').content; 
     const newElement = cardTemplate.querySelector('.elements__element').cloneNode(true);
-    const elementsBox = document.querySelector('.elements');
     newElement.querySelector('.elements__image').src = imageCards;
     newElement.querySelector('.elements__image').alt = nameCards;
     newElement.querySelector('.elements__name').textContent = nameCards;
