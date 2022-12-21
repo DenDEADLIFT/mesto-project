@@ -9,7 +9,9 @@ const profileResearch = document.querySelector('.profile__research');
 const buttonAddOpened = document.querySelector('.profile__add');
 const buttonAddClose = document.querySelector('#popup-add-close');
 const popupAddOpened = document.querySelector('#popup-add');
-
+const popupImageOpened = document.querySelector('#popup-image');
+const popupImageClose = document.querySelector('#popup-image-close');
+const imagePopup = document.querySelector('.elements__image');
 
 //Функция открытия попапов
 
@@ -37,8 +39,7 @@ buttonEditClose.addEventListener('click', function () {
 nameInput.value = profileName.textContent;
 jobInput.value = profileResearch.textContent;
 
-// Обработчик «отправки» формы, хотя пока
-// она никуда отправляться не будет
+// Функция редактирования профиля
 
 function editProfile(evt) {
     evt.preventDefault();
@@ -49,7 +50,7 @@ function editProfile(evt) {
 
 buttonEditSave.addEventListener('click', editProfile);
 
-//Карточки
+//Карточка
 
 function createCard(imageCards, nameCards) {
     const cardTemplate = document.querySelector('#card-template').content; 
@@ -61,8 +62,24 @@ function createCard(imageCards, nameCards) {
     elementsBox.prepend(newElement);
     liked();
     deleteCards();
+    openImagePopup (newElement);
     return newElement;
 }
+
+//Попап с картинкой
+
+function openImagePopup (newElement) {
+    newElement.querySelector('.elements__image').addEventListener('click', function () {
+        openPopup(popupImageOpened);
+        const cardOpenedImage = newElement.querySelector('.elements__image').cloneNode(true);
+        const cardOpenedTitle = newElement.querySelector('.elements__name').cloneNode(true);
+        document.querySelector('.popup__image').src = cardOpenedImage.src;
+        document.querySelector('.popup__image').alt = cardOpenedImage.alt;
+        document.querySelector('#popup-image-title').textContent = cardOpenedTitle.textContent;
+    });
+}
+
+//Шесть карточек
 
 initialCards.forEach(function(item) {
     createCard(item.link, item.name); 
@@ -109,3 +126,9 @@ function liked() {
         likeButton.classList.toggle('elements__button_active'); 
     });
 };
+
+//Закрытие попапа с картинкой
+
+popupImageClose.addEventListener('click', function () {
+    closePopup(popupImageOpened);
+});
