@@ -12,6 +12,12 @@ const popupAddOpened = document.querySelector('#popup-add');
 const popupImageOpened = document.querySelector('#popup-image');
 const popupImageClose = document.querySelector('#popup-image-close');
 const imagePopup = document.querySelector('.elements__image');
+const cardTemplate = document.querySelector('#card-template').content;
+const popupImage = document.querySelector('.popup__image');
+const popupImageTitle = document.querySelector('#popup-image-title');
+const titleInput = document.querySelector('#popup-input-title');
+const titlelink = document.querySelector('#popup-input-link');
+const closeButtons = document.querySelectorAll('.popup__close');
 
 //Функция открытия попапов
 
@@ -25,26 +31,20 @@ function closePopup(popupElement) {
     popupElement.classList.remove('popup_opened');
 }
 
-//Открытие и закрытие попапа редактирования
+//Открытие попапа редактирования
 
 buttonEditOpened.addEventListener('click', function () {
     openPopup(popupEditOpened);
+    nameInput.value = profileName.textContent;
+    jobInput.value = profileResearch.textContent;
 }); 
-
-buttonEditClose.addEventListener('click', function () {
-    closePopup(popupEditOpened);
-});
-
-
-nameInput.value = profileName.textContent;
-jobInput.value = profileResearch.textContent;
 
 // Функция редактирования профиля
 
 function editProfile(evt) {
     evt.preventDefault();
-    document.querySelector('.profile__name').textContent = nameInput.value;
-    document.querySelector('.profile__research').textContent = jobInput.value;
+    profileName.textContent = nameInput.value;
+    profileResearch.textContent = jobInput.value;
     closePopup(popupEditOpened)
 }
 
@@ -62,21 +62,9 @@ function createCard(imageCards, nameCards) {
     elementsBox.prepend(newElement);
     liked();
     deleteCards();
+
     openImagePopup (newElement);
     return newElement;
-}
-
-//Попап с картинкой
-
-function openImagePopup (newElement) {
-    newElement.querySelector('.elements__image').addEventListener('click', function () {
-        openPopup(popupImageOpened);
-        const cardOpenedImage = newElement.querySelector('.elements__image').cloneNode(true);
-        const cardOpenedTitle = newElement.querySelector('.elements__name').cloneNode(true);
-        document.querySelector('.popup__image').src = cardOpenedImage.src;
-        document.querySelector('.popup__image').alt = cardOpenedImage.alt;
-        document.querySelector('#popup-image-title').textContent = cardOpenedTitle.textContent;
-    });
 }
 
 //Шесть карточек
@@ -85,24 +73,32 @@ initialCards.forEach(function(item) {
     createCard(item.link, item.name); 
 });
 
-//Открытие и закрытие попапа добавления
+//Попап с картинкой
+
+function openImagePopup (newElement) {
+    newElement.querySelector('.elements__image').addEventListener('click', function () {
+        openPopup(popupImageOpened);
+        const cardOpenedImage = newElement.querySelector('.elements__image');
+        const cardOpenedTitle = newElement.querySelector('.elements__name');
+        popupImage.src = cardOpenedImage.src;
+        popupImage.alt = cardOpenedImage.alt;
+        popupImageTitle.textContent = cardOpenedTitle.textContent;
+    });
+}
+
+//Открытие попапа добавления
 
 buttonAddOpened.addEventListener('click', function () {
     openPopup(popupAddOpened);
 });
 
-buttonAddClose.addEventListener('click', function () {
-    closePopup(popupAddOpened);
-}); 
-
 //Добавление карточек
 
 function createCards(evt) {
     evt.preventDefault();
-    const titleInput = document.querySelector('#popup-input-title');
-    const titlelink = document.querySelector('#popup-input-link');
     createCard(titlelink.value, titleInput.value);
     closePopup(popupAddOpened);
+    //evt.target.reset();
 };
 
 const buttonAddCreate = document.querySelector('#button-add-create');
@@ -127,8 +123,9 @@ function liked() {
     });
 };
 
-//Закрытие попапа с картинкой
+//Закрытие любого попапа
 
-popupImageClose.addEventListener('click', function () {
-    closePopup(popupImageOpened);
-});
+closeButtons.forEach((button) => {
+    const popup = button.closest('.popup');
+    button.addEventListener('click', () => closePopup(popup));
+  });
