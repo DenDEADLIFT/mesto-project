@@ -54,7 +54,6 @@ buttonEditSave.addEventListener('click', editProfile);
 //Карточка
 
 function createCard(imageCards, nameCards) {
-    const cardTemplate = document.querySelector('#card-template').content; 
     const newElement = cardTemplate.querySelector('.elements__element').cloneNode(true);
     const likeButton = newElement.querySelector('#like')
     newElement.querySelector('.elements__image').src = imageCards;
