@@ -115,6 +115,36 @@ closeButtons.forEach((button) => {
     button.addEventListener('click', () => closePopup(popup));
   });
 
+
+
+
   // Валидация форм
 
   //Изменение стиля поля при ошибке
+
+  const formElement = document.querySelector('.popup');
+  const formInput = formElement.querySelector('.popup__input');
+
+  // Добавляем класс с ошибкой
+
+  const showInputError = (element) => {
+    element.classList.add('popup__input_type_error');
+  };
+
+  // Удаляем класс с ошибкой
+
+  const hideInputError = (element) => {
+    element.classList.remove('popup__input_type_error');
+  };
+
+  // Проверяем валидность поля
+
+  const isValid = () => {
+    if (!formInput.validity.valid) {
+        showInputError(formInput);
+    } else {
+        hideInputError(formInput);
+    }
+  };
+
+  formInput.addEventListener('input', isValid);
