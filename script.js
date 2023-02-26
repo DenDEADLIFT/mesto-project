@@ -125,6 +125,12 @@ closeButtons.forEach((button) => {
   const formElement = document.querySelector('.popup');
   const formInput = formElement.querySelector('.popup__input');
 
+  formInput.addEventListener('input', function (evt) {
+    // Выведем в консоль значение свойства validity.valid поля ввода, 
+    // на котором слушаем событие input
+    console.log(evt.target.validity.valid);
+  }); 
+
   // Добавляем класс с ошибкой
 
   const showInputError = (element) => {
@@ -148,3 +154,4 @@ closeButtons.forEach((button) => {
   };
 
   formInput.addEventListener('input', isValid);
+
