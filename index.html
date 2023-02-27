@@ -43,13 +43,13 @@
   <div class="popup" id="popup-add" >
     <div class="popup__body">
       <h2 class="popup__title">Новое место</h2>
-      <form class="popup__container" name="form-add" id="form-add" >
+      <form class="popup__container" name="form-add" id="form-add" novalidate>
         <div class="popup__fields">
           <input type="text" class="popup__input" type="text" placeholder="Название" name="title" id="popup-input-title" minlength="2" maxlength="30" pattern="^[a-zA-ZА-Яа-яёЁ-]+$" data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы" required>
           <span class="popup__input_error popup__input_error-popup-input-title">Вы пропустили это поле</span>
         </div>
         <div class="popup__fields">
-          <input type="text" class="popup__input" type="url" placeholder="Ссылка на картинку" name="link" id="popup-input-link" minlength="2" pattern="^[a-zA-Z]+$" data-error-message="Разрешены только латинские буквы" required>
+          <input type="text" class="popup__input" type="url" placeholder="Ссылка на картинку" name="link" id="popup-input-link" minlength="7" pattern="https?://.+" data-error-message="Введите адрес сайта" required>
           <span class="popup__input_error popup__input_error-popup-input-link">Вы пропустили это поле</span>
         </div>
         <button type="submit" class="popup__button" id="button-add-create">Создать</button>
