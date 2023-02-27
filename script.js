@@ -119,7 +119,10 @@ closeButtons.forEach((button) => {
 const overlays = document.querySelectorAll('.popup');
 overlays.forEach((overlay) => {
     const modal = overlay.closest('.popup');
-    overlay.addEventListener('click', () => closePopup(modal));
+    overlay.addEventListener('click', function (evt) {
+        if (evt.target == modal)
+        closePopup(modal);
+    });
     document.addEventListener('keydown', function (evt) {
         if (evt.key === "Escape") {
             closePopup(modal);
