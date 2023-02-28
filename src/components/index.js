@@ -1,8 +1,6 @@
 import initialCards from './card.js'
 import * as valid from "./validate.js";
-import { openPopup, closePopup, openImagePopup} from './popup.js'
-//import * consts from './components/const.js'
-import {} from './validate.js'
+import { openPopup, closePopup, openImagePopup } from './popup.js'
 
 const popupEditOpened = document.querySelector('#popup-edit');
 const nameInput = document.querySelector('#popup-input-name');
@@ -13,8 +11,6 @@ const profileResearch = document.querySelector('.profile__research');
 const popupAddOpened = document.querySelector('#popup-add');
 const elementsBox = document.querySelector('.elements');
 const buttonAddCreate = document.querySelector('#button-add-create');
-const formElement = document.querySelector('.popup__container');
-
 
 const selectors = {
     formSelector: '.popup__container',
@@ -23,7 +19,7 @@ const selectors = {
     inactiveButtonClass: 'popup__button_inactive',
     inputErrorClass: 'popup__input_type_error',
     errorClass: 'popup__input_error_active'
-  }; 
+};
 
 
 //Открытие попапов
@@ -96,13 +92,7 @@ function createCard(imageCards, nameCards) {
     });
     openImagePopup(newElement);
     return newElement;
-}
-
-//Шесть карточек
-
-initialCards.forEach(function (item) {
-    elementsBox.prepend(createCard(item.link, item.name));
-});
+};
 
 //Добавление карточек
 
@@ -116,11 +106,12 @@ function createCards(evt) {
     titleInput.value = '';
 };
 
+//Шесть карточек
+
+initialCards.forEach(function (item) {
+    elementsBox.prepend(createCard(item.link, item.name));
+});
+
 buttonAddCreate.addEventListener('click', createCards);
-
-
-//valid.toggleButtonState(inputList, selectors);
-
-//valid.setEventListeners(formElement, selectors);
 
 valid.enableValidation(selectors); 
