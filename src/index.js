@@ -1,8 +1,10 @@
 // Переменные
 
-import initialCards from './card.js'
-import * as valid from "./validate.js";
-import { openPopup, closePopup, openImagePopup } from './popup.js'
+import initialCards from './components/card.js'
+import * as valid from "./components/validate.js";
+import { openPopup, closePopup, openImagePopup } from './components/popup.js'
+
+import './pages/index.css'; // добавляем импорт главного файла стилей 
 
 // Переменные
 
