@@ -1,6 +1,10 @@
+// Переменные
+
 import initialCards from './card.js'
 import * as valid from "./validate.js";
 import { openPopup, closePopup, openImagePopup } from './popup.js'
+
+// Переменные
 
 const popupEditOpened = document.querySelector('#popup-edit');
 const nameInput = document.querySelector('#popup-input-name');
@@ -12,6 +16,8 @@ const popupAddOpened = document.querySelector('#popup-add');
 const elementsBox = document.querySelector('.elements');
 const buttonAddCreate = document.querySelector('#button-add-create');
 
+// Селекторы для валидации
+
 const selectors = {
     formSelector: '.popup__container',
     inputSelector: '.popup__input',
@@ -20,7 +26,6 @@ const selectors = {
     inputErrorClass: 'popup__input_type_error',
     errorClass: 'popup__input_error_active'
 };
-
 
 //Открытие попапов
 
@@ -73,8 +78,6 @@ function editProfile(evt) {
     closePopup(popupEditOpened)
 }
 
-buttonEditSave.addEventListener('click', editProfile);
-
 //Создание карточки
 
 function createCard(imageCards, nameCards) {
@@ -106,12 +109,20 @@ function createCards(evt) {
     titleInput.value = '';
 };
 
-//Шесть карточек
+// Шесть карточек
 
 initialCards.forEach(function (item) {
     elementsBox.prepend(createCard(item.link, item.name));
 });
 
+// Слушатель кнопки редактирования
+
+buttonEditSave.addEventListener('click', editProfile);
+
+// Слушатель кнопки добавления карточки
+
 buttonAddCreate.addEventListener('click', createCards);
+
+// Вызываем функцию валидации
 
 valid.enableValidation(selectors); 
