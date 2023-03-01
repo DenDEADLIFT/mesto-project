@@ -1,7 +1,6 @@
 // Добавляем класс с ошибкой
 
 function showInputError (formElement, inputElement, errorMessage, selectors) {
-    //const inputElement = document.querySelector('.popup__input');
     const errorElement = formElement.querySelector(`.popup__input_error-${inputElement.id}`);
     inputElement.classList.add(selectors.inputErrorClass);
     errorElement.textContent = errorMessage;
@@ -12,7 +11,6 @@ function showInputError (formElement, inputElement, errorMessage, selectors) {
 // Удаляем класс с ошибкой
 
 function hideInputError (formElement, inputElement, selectors) {
-    //const inputElement = document.querySelector('.popup__input');
     const error = formElement.querySelector(`.popup__input_error-${inputElement.id}`);
     inputElement.classList.remove(selectors.inputErrorClass);
     error.classList.remove(selectors.errorClass);
@@ -38,6 +36,8 @@ function hasInvalidInput (inputList) {
     return inputList.some((inputElement) => !inputElement.validity.valid)
 };
 
+// Добавляем и удаляем неактивный класс для кнопки добавления, отключаем и включаем её
+
 function toggleButtonState (inputList, buttonElement, selectors) {
     inputList.forEach((input) => input.setCustomValidity(''));
     if (hasInvalidInput(inputList)) {
@@ -48,6 +48,8 @@ function toggleButtonState (inputList, buttonElement, selectors) {
         buttonElement.classList.remove(selectors.inactiveButtonClass);
     }
 };
+
+// Вешаем слушатели ввода символов в инпуты и на кнопку добавления
 
 function setEventListeners (formElement, selectors) {
     const inputList = Array.from(formElement.querySelectorAll(selectors.inputSelector));
@@ -60,6 +62,9 @@ function setEventListeners (formElement, selectors) {
         })
     });
 };
+
+// Функция валидации форм. Ищем формы, перебираем их и добавляем функцию слушателей. 
+// Экспортируем в index.js
 
 export function enableValidation (selectors) {
     const formList = Array.from(document.querySelectorAll(selectors.formSelector));
