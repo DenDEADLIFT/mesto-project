@@ -1,7 +1,6 @@
 // Добавляем класс с ошибкой
 
 function showInputError (formElement, inputElement, errorMessage, selectors) {
-    //const inputElement = document.querySelector('.popup__input');
     const errorElement = formElement.querySelector(`.popup__input_error-${inputElement.id}`);
     inputElement.classList.add(selectors.inputErrorClass);
     errorElement.textContent = errorMessage;
@@ -12,7 +11,6 @@ function showInputError (formElement, inputElement, errorMessage, selectors) {
 // Удаляем класс с ошибкой
 
 function hideInputError (formElement, inputElement, selectors) {
-    //const inputElement = document.querySelector('.popup__input');
     const error = formElement.querySelector(`.popup__input_error-${inputElement.id}`);
     inputElement.classList.remove(selectors.inputErrorClass);
     error.classList.remove(selectors.errorClass);
