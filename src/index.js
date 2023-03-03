@@ -28,7 +28,6 @@ const buttonAddOpened = document.querySelector('.profile__add');
 // Селекторы для валидации
 
 const selectors = {
-    
     popupErrorInput: '.popup__input_error-',
     formSelector: '.popup__container',
     inputSelector: '.popup__input',
@@ -39,16 +38,20 @@ const selectors = {
 };
 
 //Открытие попапа редактирования
+
 buttonEditOpened.addEventListener('click', function (selectors) {
-    openPopup(popupEditOpened);
+    valid.buttonBlock(selectors);
     nameInput.value = profileName.textContent;
     jobInput.value = profileResearch.textContent;
-    
+    openPopup(popupEditOpened);
 });
 
 //Открытие попапа добавления
 
-buttonAddOpened.addEventListener('click', function (valid, selectors) {
+buttonAddOpened.addEventListener('click', function (selectors) {
+    valid.buttonBlock(selectors);
+    titlelink.value = '';
+    titleInput.value = '';
     openPopup(popupAddOpened);
 });
 
@@ -60,6 +63,7 @@ closeButtons.forEach((button) => {
 });
 
 //Закрытие попапов по оверлею и Esc
+
 overlays.forEach((overlay) => {
     const modal = overlay.closest('.popup');
     overlay.addEventListener('click', function (evt) {
@@ -110,7 +114,6 @@ function createOneCard(evt) {
     titleInput.value = '';
     elementsBox.prepend(createCard(titlelink.value, titleInput.value));
     closePopup(popupAddOpened);
-    evt.preventDefault();
 };
 
 // Шесть карточек
@@ -130,4 +133,3 @@ popupAddOpened.addEventListener('submit', createOneCard);
 // Вызываем функцию валидации
 
 valid.enableValidation(selectors);
-

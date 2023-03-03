@@ -1,19 +1,23 @@
 // Добавляем класс с ошибкой
 
 function showInputError(formElement, inputElement, errorMessage, selectors) {
-    const errorElement = formElement.querySelector(`${selectors.popupErrorInput}${inputElement.id}`);
-    inputElement.classList.add(selectors.inputErrorClass);
-    errorElement.classList.add(selectors.errorClass);
-    errorElement.textContent = errorMessage;
+    const errorElement = formElement.querySelectorAll(`${selectors.popupErrorInput}${inputElement.id}`);
+    errorElement.forEach((errorEl) => {
+        inputElement.classList.add(selectors.inputErrorClass);
+        errorEl.classList.add(selectors.errorClass);
+        errorEl.textContent = errorMessage;
+    });
 };
 
 // Удаляем класс с ошибкой
 
 export function hideInputError(formElement, inputElement, selectors) {
-    const error = formElement.querySelector(`${selectors.popupErrorInput}${inputElement.id}`);
-    inputElement.classList.remove(selectors.inputErrorClass);
-    error.classList.remove(selectors.errorClass);
-    error.textContent = '';
+    const error = formElement.querySelectorAll(`${selectors.popupErrorInput}${inputElement.id}`);
+    error.forEach((errorEl) => {
+        inputElement.classList.remove(selectors.inputErrorClass);
+        errorEl.classList.remove(selectors.errorClass);
+        errorEl.textContent = '';
+    });
 };
 
 // Проверяем валидность поля

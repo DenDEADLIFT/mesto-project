@@ -3,7 +3,6 @@ import { closePopupByEsc, popupImageTitle, popupImage, popupImageOpened, selecto
 //Функция открытия попапов
 
 export function openPopup(popupElement) {
-    //buttonBlock(selectors);
     popupElement.classList.add('popup_opened');
     document.addEventListener('keydown', closePopupByEsc);
 };
