@@ -28,7 +28,8 @@ const buttonAddOpened = document.querySelector('.profile__add');
 // Селекторы для валидации
 
 const selectors = {
-    elementForm: '`.popup__input_error-${inputElement.id}`',
+    
+    popupErrorInput: '.popup__input_error-',
     formSelector: '.popup__container',
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__button',
