@@ -24,10 +24,11 @@ export const popupImageOpened = document.querySelector('#popup-image');
 export const popupImageTitle = document.querySelector('#popup-image-title');
 export const popupImage = document.querySelector('.popup__image');
 const buttonAddOpened = document.querySelector('.profile__add');
+export const popupButton = document.querySelector('.popup__button');
 
 // Селекторы для валидации
 
-const selectors = {
+export const selectors = {
     popupErrorInput: '.popup__input_error-',
     formSelector: '.popup__container',
     inputSelector: '.popup__input',
@@ -39,8 +40,7 @@ const selectors = {
 
 //Открытие попапа редактирования
 
-buttonEditOpened.addEventListener('click', function (selectors) {
-    valid.buttonBlock(selectors);
+buttonEditOpened.addEventListener('click', function () {
     nameInput.value = profileName.textContent;
     jobInput.value = profileResearch.textContent;
     openPopup(popupEditOpened);
@@ -48,11 +48,10 @@ buttonEditOpened.addEventListener('click', function (selectors) {
 
 //Открытие попапа добавления
 
-buttonAddOpened.addEventListener('click', function (selectors) {
-    valid.buttonBlock(selectors);
+buttonAddOpened.addEventListener('click', function () {
+    openPopup(popupAddOpened);
     titlelink.value = '';
     titleInput.value = '';
-    openPopup(popupAddOpened);
 });
 
 // Закрытие попапов по кнопке
@@ -102,7 +101,7 @@ function createCard(imageCards, nameCards) {
     newElement.querySelector('#delete').addEventListener('click', function (evt) {
         evt.target.closest('.elements__element').remove();
     });
-    newElement.querySelector('.elements__image').addEventListener('click', openImagePopup);
+    openImagePopup(newElement, imageCards, nameCards);
     return newElement;
 };
 
@@ -110,10 +109,10 @@ function createCard(imageCards, nameCards) {
 
 function createOneCard(evt) {
     evt.preventDefault();
-    titlelink.value = '';
-    titleInput.value = '';
     elementsBox.prepend(createCard(titlelink.value, titleInput.value));
     closePopup(popupAddOpened);
+    titlelink.value = '';
+    titleInput.value = '';
 };
 
 // Шесть карточек

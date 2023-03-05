@@ -60,7 +60,6 @@ export function setEventListeners(formElement, selectors) {
     toggleButtonState(inputList, submitButton, selectors);
     inputList.forEach((inputElement) => {
         inputElement.addEventListener('input', () => {
-            
             isValid(formElement, inputElement, selectors);
             toggleButtonState(inputList, submitButton, selectors);
         });
@@ -79,8 +78,7 @@ export function enableValidation(selectors) {
 
 // Функция блокировки кнопки
 
-export function buttonBlock(selectors) {
-    const popupButton = document.querySelector('.popup__button');
+export function buttonBlock(popupButton, selectors) {
     popupButton.disabled = true;
     popupButton.classList.add(selectors.inactiveButtonClass);
 };
