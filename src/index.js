@@ -84,7 +84,7 @@ function editProfile(evt) {
     evt.preventDefault();
     profileName.textContent = nameInput.value;
     profileResearch.textContent = jobInput.value;
-    closePopup(popupEditOpened);
+    closePopup(popupEditOpened)
 }
 
 //Создание карточки

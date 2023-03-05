@@ -1,7 +1,5 @@
 // Карточки
 
-
-
 const initialCards = [
     {
       name: 'Архыз',
