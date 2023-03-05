@@ -1,5 +1,4 @@
-import { closePopupByEsc, popupImageTitle, popupImage, popupImageOpened, selectors, popupButton } from '../index';
-import * as valid from '../components/validate.js'
+import { closePopupByEsc, popupImageTitle, popupImage, popupImageOpened } from '../index';
 
 //Функция открытия попапов
 
@@ -13,16 +12,14 @@ export function openPopup(popupElement) {
 export function closePopup(popupElement) {
     popupElement.classList.remove('popup_opened');
     document.removeEventListener('keydown', closePopupByEsc);
-    valid.buttonBlock(popupButton, selectors);
+
 };
 
 //Попап с картинкой
 
-export function openImagePopup(newElement, imageCards, nameCards) {
-    newElement.querySelector('.elements__image').addEventListener('click', function () {        
+export function openImagePopup(imageCards, nameCards) {
     openPopup(popupImageOpened);
     popupImage.src = imageCards;
     popupImage.alt = nameCards;
     popupImageTitle.textContent = nameCards;
-    });
 };

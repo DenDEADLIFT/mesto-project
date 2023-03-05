@@ -41,6 +41,7 @@ export const selectors = {
 //Открытие попапа редактирования
 
 buttonEditOpened.addEventListener('click', function () {
+    valid.buttonBlock(popupButton, selectors);
     nameInput.value = profileName.textContent;
     jobInput.value = profileResearch.textContent;
     openPopup(popupEditOpened);
@@ -49,6 +50,7 @@ buttonEditOpened.addEventListener('click', function () {
 //Открытие попапа добавления
 
 buttonAddOpened.addEventListener('click', function () {
+    valid.buttonBlock(popupButton, selectors);
     openPopup(popupAddOpened);
     titlelink.value = '';
     titleInput.value = '';
@@ -101,7 +103,7 @@ function createCard(imageCards, nameCards) {
     newElement.querySelector('#delete').addEventListener('click', function (evt) {
         evt.target.closest('.elements__element').remove();
     });
-    openImagePopup(newElement, imageCards, nameCards);
+    newElement.querySelector('.elements__image').addEventListener('click', () => openImagePopup(imageCards, nameCards));
     return newElement;
 };
 
