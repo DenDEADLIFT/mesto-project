@@ -23,13 +23,12 @@ export const profileInfo = (name, about, avatar) => {
             return Promise.reject(`Ошибка: ${res.status}`); // если ошибка, отклоняем промис
         })
         .then(data => {
-            //console.log(data);
             name.textContent = data.name;
             about.textContent = data.about;
             avatar.src = data.avatar;
         })
         .catch((err) => {
-            console.log(err); // выводим ошибку в консоль
+            console.log(err); 
         })
 }
 
@@ -55,7 +54,7 @@ export const avatarChange = (avatarLink) => {
         })
 }
 
-// Отправка карточек на сервер
+// Создание карточек
 
 export const cardsFromServer = () => {
     return fetch(`${config.baseUrl}/cards`, {
@@ -69,9 +68,9 @@ export const cardsFromServer = () => {
         })
         .then(data => {
             data.forEach(function (item) {
-                elementsBox.prepend(createCard(item.link, item.name));
+                const like = item.likes.length;
+                elementsBox.prepend(createCard(item.link, item.name, like));
             });
-            //console.log(data);
         })
         .catch((err) => {
             console.log(err); // выводим ошибку в консоль
@@ -92,7 +91,6 @@ export const userInfoForServer = (nameInput, jobInput) => {
         })
     })
         .then(res => {
-            //console.log(res);
             if (res.ok) {
                 return res.json();
             }
@@ -115,7 +113,6 @@ export const cardForServer = (titlelink, titleInput) => {
         })
     })
         .then(res => {
-            console.log(res);
             if (res.ok) {
                 return res.json();
             }

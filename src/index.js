@@ -107,12 +107,14 @@ api.profileInfo(profileName, profileResearch, popapAvatar);
 
 //Создание карточки
 
-export function createCard(imageCards, nameCards) {
+export function createCard(imageCards, nameCards, likes) {
     const newElement = cardTemplate.querySelector('.elements__element').cloneNode(true);
-    const likeButton = newElement.querySelector('#like')
+    const likeButton = newElement.querySelector('#like');
+    const like = newElement.querySelector('#likes-count');
     newElement.querySelector('.elements__image').src = imageCards;
     newElement.querySelector('.elements__image').alt = nameCards;
     newElement.querySelector('.elements__name').textContent = nameCards;
+    newElement.querySelector('#likes-count').textContent = likes;
     likeButton.addEventListener('click', function (like) {
         likeButton.classList.toggle('elements__button_active');
     });
@@ -129,9 +131,9 @@ function createOneCard(evt) {
     closePopup(popupAddOpened);
     const elementsBlock = document.querySelector('.elements__element');
     elementsBlock.insertAdjacentHTML('afterbegin', '<button type="button" class="elements__delete-button" id="delete"></button>');
-    elementsBlock.querySelector('.elements__delete-button').addEventListener('click', (evt) => {
+    /*elementsBlock.querySelector('.elements__delete-button').addEventListener('click', (evt) => {
         evt.target.closest('.elements__element').remove();
-    });
+    });*/
     titlelink.value = '';
     titleInput.value = '';
 };
