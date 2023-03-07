@@ -1,5 +1,4 @@
-import { elementsBox, createCard } from '../index.js'
-
+//import { elementsBox, createCard } from '../index.js'
 
 const config = {
     baseUrl: 'https://nomoreparties.co/v1/plus-cohort-20',
@@ -9,6 +8,16 @@ const config = {
     }
 }
 
+export function onResponse(res) {
+    if (res.ok) {
+        return res.json();
+    }
+    return Promise.reject(`Ошибка: ${res.status}`); // если ошибка, отклоняем промис
+}
+
+export function error(err) {
+    console.log(err);
+}
 
 // Информация о пользователе
 
@@ -16,20 +25,6 @@ export const profileInfo = (name, about, avatar) => {
     return fetch(`${config.baseUrl}/users/me`, {
         headers: config.headers
     })
-        .then(res => {
-            if (res.ok) {
-                return res.json();
-            }
-            return Promise.reject(`Ошибка: ${res.status}`); // если ошибка, отклоняем промис
-        })
-        .then(data => {
-            name.textContent = data.name;
-            about.textContent = data.about;
-            avatar.src = data.avatar;
-        })
-        .catch((err) => {
-            console.log(err); 
-        })
 }
 
 // Отправка аватара
@@ -42,16 +37,6 @@ export const avatarChange = (avatarLink) => {
             avatar: avatarLink
         })
     })
-        .then(res => {
-            console.log(res);
-            if (res.ok) {
-                return res.json();
-            }
-            return Promise.reject(`Ошибка: ${res.status}`); // если ошибка, отклоняем промис
-        })
-        .catch((err) => {
-            console.log(err); // выводим ошибку в консоль
-        })
 }
 
 // Создание карточек
@@ -60,24 +45,7 @@ export const cardsFromServer = () => {
     return fetch(`${config.baseUrl}/cards`, {
         headers: config.headers
     })
-        .then(res => {
-            if (res.ok) {
-                return res.json();
-            }
-            return Promise.reject(`Ошибка: ${res.status}`); // если ошибка, отклоняем промис
-        })
-        .then(data => {
-            data.forEach(function (item) {
-                const like = item.likes.length;
-                elementsBox.prepend(createCard(item.link, item.name, like));
-            });
-        })
-        .catch((err) => {
-            console.log(err); // выводим ошибку в консоль
-        })
 }
-
-cardsFromServer()
 
 // Отправка информации о пользователе на сервер
 
@@ -90,15 +58,6 @@ export const userInfoForServer = (nameInput, jobInput) => {
             about: jobInput
         })
     })
-        .then(res => {
-            if (res.ok) {
-                return res.json();
-            }
-            return Promise.reject(`Ошибка: ${res.status}`); // если ошибка, отклоняем промис
-        })
-        .catch((err) => {
-            console.log(err); // выводим ошибку в консоль
-        })
 }
 
 // Отправка новой карточки на сервер
@@ -112,13 +71,23 @@ export const cardForServer = (titlelink, titleInput) => {
             link: titlelink
         })
     })
-        .then(res => {
-            if (res.ok) {
-                return res.json();
-            }
-            return Promise.reject(`Ошибка: ${res.status}`); // если ошибка, отклоняем промис
-        })
-        .catch((err) => {
-            console.log(err); // выводим ошибку в консоль
-        })
+}
+
+export function createMyId() {
+    return fetch(`${config.baseUrl}/users/me`, {
+        headers: config.headers
+    })
+}
+
+export const createCardsId = () => {
+    return fetch(`${config.baseUrl}/cards`, {
+        headers: config.headers
+    })
+}
+
+export const deleteCardFromServer = (cardId) => {
+    return fetch(`${config.baseUrl}/cards/${cardId}`, {
+        headers: config.headers,
+        method: 'DELETE'
+    })
 }
