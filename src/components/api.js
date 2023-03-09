@@ -73,7 +73,7 @@ export const cardForServer = (titlelink, titleInput) => {
     })
 }
 
-export function createMyId() {
+export function createMyCart() {
     return fetch(`${config.baseUrl}/users/me`, {
         headers: config.headers
     })
@@ -89,5 +89,44 @@ export const deleteCardFromServer = (cardId) => {
     return fetch(`${config.baseUrl}/cards/${cardId}`, {
         headers: config.headers,
         method: 'DELETE'
+    })
+}
+
+export const deleteMyCard = () => {
+    return fetch(`${config.baseUrl}/cards`, {
+        headers: config.headers
+    })
+}
+
+export const putLike = (cardId) => {
+    return fetch(`${config.baseUrl}/cards/likes/${cardId}`, {
+        headers: config.headers,
+        method: 'PUT'
+    })
+}
+
+export const myLikeActive = () => {
+    return fetch(`${config.baseUrl}/users/me`, {
+        headers: config.headers
+    })
+}
+
+export const deleteLike = (cardId) => {
+    return fetch(`${config.baseUrl}/cards/likes/${cardId}`, {
+        headers: config.headers,
+        method: 'DELETE'
+    })
+}
+
+export const createMyId = () => {
+    return fetch(`${config.baseUrl}/users/me`, {
+        headers: config.headers
+    })
+}
+
+export const likesCount = () => {
+    return fetch(`${config.baseUrl}/cards`, {
+        headers: config.headers,
+        method: 'GET'
     })
 }

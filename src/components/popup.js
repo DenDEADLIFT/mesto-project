@@ -12,7 +12,6 @@ export function openPopup(popupElement) {
 export function closePopup(popupElement) {
     popupElement.classList.remove('popup_opened');
     document.removeEventListener('keydown', closePopupByEsc);
-
 };
 
 //Попап с картинкой
