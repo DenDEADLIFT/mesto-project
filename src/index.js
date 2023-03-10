@@ -110,15 +110,14 @@ function editProfile(evt) {
 
 // Удаление карточки
 
-export function deleteMyCard (cardId, cartElement, newElement) {
+export function deleteMyCard(cardId, cartElement, newElement) {
     cartElement.addEventListener('click', function () {
-    api.deleteCardFromServer(cardId)
-    .then(() => {
-        console.log()
-        newElement.closest('.elements__element').remove();
+        api.deleteCardFromServer(cardId)
+            .then(() => {
+                newElement.closest('.elements__element').remove();
+            })
+            .catch(api.showError)
     })
-    .catch(api.showError)
-})
 }
 
 //Добавление карточки
@@ -128,7 +127,6 @@ function createOneCard(evt) {
     renderLoading(true);
     api.sendCardForServer(titlelink.value, titleInput.value)
         .then((data) => {
-            //console.log(data)
             elementsBox.prepend(createCard(data.owner.avatar, data.owner.name, id, data));
             closePopup(popupAddOpened);
             titlelink.value = '';
@@ -142,15 +140,15 @@ function createOneCard(evt) {
 
 // Карточки с сервера
 
-Promise.all([ api.createProfileInfo(), api.createCardsFromServer()])
-.then(([info, cards]) => {
-    profileName.textContent = info.name;
-    profileResearch.textContent = info.about;
-    avatarElement.src = info.avatar;
-    id = info._id;
-    createCards (cards, id);
-})
-.catch(api.showError)
+Promise.all([api.createProfileInfo(), api.createCardsFromServer()])
+    .then(([info, cards]) => {
+        profileName.textContent = info.name;
+        profileResearch.textContent = info.about;
+        avatarElement.src = info.avatar;
+        id = info._id;
+        createCards(cards, id);
+    })
+    .catch(api.showError)
 
 // Функция смены аватара
 

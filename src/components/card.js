@@ -14,20 +14,15 @@ export function createCard(imageCards, nameCards, id, cardInfo) {
     newElement.querySelector('.elements__name').textContent = nameCards;
     newElement.querySelector('#likes-count').textContent = cardInfo.likes.length;
     createLike(likeButton, cardInfo._id, newElement)
-
-    //addAndDeleteLikes(likeButton, cardInfo._id, newElement)
     newElement.querySelector('.elements__image').addEventListener('click', () => openImagePopup(imageCards, nameCards));
     if (cardInfo.owner._id !== id) {
         cartElement.remove();
     }
-    //console.log(id)
     if (cartElement) {
         deleteMyCard(cardInfo._id, cartElement, newElement)
 
     }
-
     return newElement;
-
 }
 
 export function createCards(cards, id) {
@@ -44,7 +39,6 @@ function createLike(likeButton, cardId, newElement) {
         if (!likeButton.classList.contains('elements__button_active')) {
             api.putLike(cardId)
                 .then((data) => {
-                    console.log(data)
                     newElement.querySelector('#likes-count').textContent = data.likes.length;
                     likeButton.classList.toggle('elements__button_active');
                 })
@@ -52,7 +46,6 @@ function createLike(likeButton, cardId, newElement) {
         } else {
             api.deleteLike(cardId)
                 .then((data) => {
-                    console.log(data)
                     newElement.querySelector('#likes-count').textContent = data.likes.length;
                     likeButton.classList.toggle('elements__button_active');
                 })
