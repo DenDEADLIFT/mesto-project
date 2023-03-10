@@ -1,5 +1,3 @@
-//import { elementsBox, createCard } from '../index.js'
-
 const config = {
     baseUrl: 'https://nomoreparties.co/v1/plus-cohort-20',
     headers: {
@@ -8,28 +6,29 @@ const config = {
     }
 }
 
-export function onResponse(res) {
+export function checkingResponse(res) {
     if (res.ok) {
         return res.json();
     }
-    return Promise.reject(`Ошибка: ${res.status}`); // если ошибка, отклоняем промис
+    return Promise.reject(`Ошибка: ${res.status}`);
 }
 
-export function error(err) {
+export function showError(err) {
     console.log(err);
 }
 
 // Информация о пользователе
 
-export const profileInfo = (name, about, avatar) => {
+export const createProfileInfo = () => {
     return fetch(`${config.baseUrl}/users/me`, {
         headers: config.headers
     })
+    .then(checkingResponse)
 }
 
 // Отправка аватара
 
-export const avatarChange = (avatarLink) => {
+export const changeAvatar = (avatarLink) => {
     return fetch(`${config.baseUrl}/users/me/avatar`, {
         headers: config.headers,
         method: 'PATCH',
@@ -37,19 +36,21 @@ export const avatarChange = (avatarLink) => {
             avatar: avatarLink
         })
     })
+    .then(checkingResponse)
 }
 
 // Создание карточек
 
-export const cardsFromServer = () => {
+export const createCardsFromServer = () => {
     return fetch(`${config.baseUrl}/cards`, {
         headers: config.headers
     })
+    .then(checkingResponse)
 }
 
 // Отправка информации о пользователе на сервер
 
-export const userInfoForServer = (nameInput, jobInput) => {
+export const createUserInfoForServer = (nameInput, jobInput) => {
     return fetch(`${config.baseUrl}/users/me`, {
         headers: config.headers,
         method: 'PATCH',
@@ -58,11 +59,12 @@ export const userInfoForServer = (nameInput, jobInput) => {
             about: jobInput
         })
     })
+    .then(checkingResponse)
 }
 
 // Отправка новой карточки на сервер
 
-export const cardForServer = (titlelink, titleInput) => {
+export const sendCardForServer = (titlelink, titleInput) => {
     return fetch(`${config.baseUrl}/cards`, {
         headers: config.headers,
         method: 'POST',
@@ -71,18 +73,7 @@ export const cardForServer = (titlelink, titleInput) => {
             link: titlelink
         })
     })
-}
-
-export function createMyCart() {
-    return fetch(`${config.baseUrl}/users/me`, {
-        headers: config.headers
-    })
-}
-
-export const createCardsId = () => {
-    return fetch(`${config.baseUrl}/cards`, {
-        headers: config.headers
-    })
+    .then(checkingResponse)
 }
 
 export const deleteCardFromServer = (cardId) => {
@@ -90,12 +81,7 @@ export const deleteCardFromServer = (cardId) => {
         headers: config.headers,
         method: 'DELETE'
     })
-}
-
-export const deleteMyCard = () => {
-    return fetch(`${config.baseUrl}/cards`, {
-        headers: config.headers
-    })
+    .then(checkingResponse)
 }
 
 export const putLike = (cardId) => {
@@ -103,12 +89,7 @@ export const putLike = (cardId) => {
         headers: config.headers,
         method: 'PUT'
     })
-}
-
-export const myLikeActive = () => {
-    return fetch(`${config.baseUrl}/users/me`, {
-        headers: config.headers
-    })
+    .then(checkingResponse)
 }
 
 export const deleteLike = (cardId) => {
@@ -116,17 +97,5 @@ export const deleteLike = (cardId) => {
         headers: config.headers,
         method: 'DELETE'
     })
-}
-
-export const createMyId = () => {
-    return fetch(`${config.baseUrl}/users/me`, {
-        headers: config.headers
-    })
-}
-
-export const likesCount = () => {
-    return fetch(`${config.baseUrl}/cards`, {
-        headers: config.headers,
-        method: 'GET'
-    })
+    .then(checkingResponse)
 }
