@@ -21,9 +21,6 @@ const closeButtons = document.querySelectorAll('.popup__close');
 const overlays = document.querySelectorAll('.popup');
 const titlelink = document.querySelector('#popup-input-link');
 const titleInput = document.querySelector('#popup-input-title');
-export const popupImageOpened = document.querySelector('#popup-image');
-export const popupImageTitle = document.querySelector('#popup-image-title');
-export const popupImage = document.querySelector('.popup__image');
 const buttonAddOpened = document.querySelector('.profile__add');
 const popupAddButton = document.querySelector('#button-add-create');
 const popupEditButton = document.querySelector('#button-edit-save');
@@ -86,18 +83,11 @@ overlays.forEach((overlay) => {
     });
 })
 
-export function closePopupByEsc(evt) {
-    if (evt.key === "Escape") {
-        const openedPopup = document.querySelector('.popup_opened');
-        closePopup(openedPopup);
-    };
-}
-
 // Функция редактирования профиля
 
 function editProfile(evt) {
     evt.preventDefault();
-    renderLoading(true);
+    renderLoading(evt.submitter, 'Сохранение...')
     api.createUserInfoForServer(nameInput.value, jobInput.value)
         .then(() => {
             profileName.textContent = nameInput.value;
@@ -105,36 +95,27 @@ function editProfile(evt) {
             closePopup(popupEditOpened);
         })
         .catch(api.showError)
-        .finally(() => { document.querySelector('#button-edit-save').textContent = 'Сохранить' })
-}
-
-// Удаление карточки
-
-export function deleteMyCard(cardId, cartElement, newElement) {
-    cartElement.addEventListener('click', function () {
-        api.deleteCardFromServer(cardId)
-            .then(() => {
-                newElement.closest('.elements__element').remove();
-            })
-            .catch(api.showError)
-    })
+        .finally(() => {
+            renderLoading(evt.submitter, 'Сохранить'); 
+        })
 }
 
 //Добавление карточки
 
 function createOneCard(evt) {
     evt.preventDefault();
-    renderLoading(true);
+    renderLoading(evt.submitter, 'Сохранение...');
     api.sendCardForServer(titlelink.value, titleInput.value)
         .then((data) => {
-            elementsBox.prepend(createCard(data.owner.avatar, data.owner.name, id, data));
+            console.log(data)
+            elementsBox.prepend(createCard(data.link, data.name, id, data));
             closePopup(popupAddOpened);
             titlelink.value = '';
             titleInput.value = '';
         })
         .catch(api.showError)
         .finally(() => {
-            document.querySelector('#button-add-create').textContent = 'Создать';
+            renderLoading(evt.submitter, 'Создать');
         })
 }
 
@@ -154,23 +135,20 @@ Promise.all([api.createProfileInfo(), api.createCardsFromServer()])
 
 function createNewAvatar(evt) {
     evt.preventDefault();
-    renderLoading(true)
+    renderLoading(evt.submitter, 'Сохранение...')
     api.changeAvatar(avatarLink.value)
         .then(() => {
             avatarElement.src = avatarLink.value;
             closePopup(popapAvatar);
         })
         .catch(api.showError)
-        .finally(() => { document.querySelector('#button-add-avatar').textContent = 'Сохранить' })
+        .finally(() => { 
+            renderLoading(evt.submitter, 'Сохранить'); 
+        })
 }
 
-function renderLoading(isLoading) {
-    if (isLoading) {
-        const popupButtons = document.querySelectorAll('.popup__button');
-        popupButtons.forEach((item) => {
-            item.textContent = 'Сохранение...';
-        })
-    }
+function renderLoading(item, text) {
+    item.textContent = text;
 }
 
 // Слушатель кнопки редактирования

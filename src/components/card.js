@@ -1,4 +1,4 @@
-import { cardTemplate, elementsBox, deleteMyCard } from '../index.js'
+import { cardTemplate, elementsBox } from '../index.js'
 import * as api from "./api.js";
 import { openImagePopup } from './popup.js'
 
@@ -51,5 +51,17 @@ function createLike(likeButton, cardId, newElement) {
                 })
                 .catch(api.showError)
         }
+    })
+}
+
+// Удаление карточки
+
+export function deleteMyCard(cardId, cartElement, newElement) {
+    cartElement.addEventListener('click', function () {
+        api.deleteCardFromServer(cardId)
+            .then(() => {
+                newElement.closest('.elements__element').remove();
+            })
+            .catch(api.showError)
     })
 }

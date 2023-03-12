@@ -1,4 +1,6 @@
-import { closePopupByEsc, popupImageTitle, popupImage, popupImageOpened } from '../index';
+const popupImageTitle = document.querySelector('#popup-image-title');
+const popupImage = document.querySelector('.popup__image');
+const popupImageOpened = document.querySelector('#popup-image');
 
 //Функция открытия попапов
 
@@ -21,4 +23,11 @@ export function openImagePopup(imageCards, nameCards) {
     popupImage.src = imageCards;
     popupImage.alt = nameCards;
     popupImageTitle.textContent = nameCards;
-};
+}
+
+export function closePopupByEsc(evt) {
+    if (evt.key === "Escape") {
+        const openedPopup = document.querySelector('.popup_opened');
+        closePopup(openedPopup);
+    };
+}
